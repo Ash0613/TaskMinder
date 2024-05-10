@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            justify-content: center;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            /* Added */
+            background-image: url('images/vecteezy_pink-pastel-color-abstract-background-design-and-soft-pastel_9279989.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .header1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .header1 h1 {
+            font-size: 30px;
+            font-weight: 800;
+            color: rgb(145, 92, 121);
+            margin: 0;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+        }
+
+        .header1 h1 i {
+            margin-right: 10px;
+            font-size: 30px;
+
+        }
+
+        .menu {
+            list-style-type: none;
+            padding: 20px;
+            margin: 0;
+            display: flex;
+        }
+
+        .menu li {
+            margin-left: 20px;
+        }
+
+        .menu li a {
+            text-decoration: none;
+            color: rgb(145, 92, 121);
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .menu li a:hover {
+            color: rgba(145, 92, 121, 0.8);
+        }
+
+
+
+
+
+        header {
+            background-color: #915c79;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 8px;
+
+        }
+
+
+
+        .main-content {
+            padding: 20px;
+            flex-grow: 1;
+            width: 80%;
+            justify-content: center;
+            justify-self: center;
+            align-items: center;
+
+        }
+
+
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        section {
+            margin-bottom: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h2 {
+            color: #915c79;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #915c79;
+            color: #fff;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .team-member {
+            width: 250px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            background-color: #fff;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-member img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 4px solid #915c79;
+        }
+
+        .member-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .member-info h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #915c79;
+        }
+
+        .member-info p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .container {
+            justify-content: center;
+            align-self: center;
+            display: flex;
+            width: 90%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header1">
+        <h1><i class="fas fa-tasks"></i>TASKMINDER</h1>
+        <ul class="menu">
+            <li><a href="getstarted.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="main-content">
+            <header>
+                <h1>About Us</h1>
+            </header>
+
+            <section id="team-heading">
+                <h2>Our Team</h2>
+                <div class="team-container">
+                    <div class="team-member">
+                        <img src="images/52375.jpg" alt="Team Member 1">
+                        <div class="member-info">
+                            <h3>Ashlin Dsouza</h3>
+                            <p>Designer</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="images/52656.jpg" alt="Team Member 2">
+                        <div class="member-info">
+                            <h3>Chaithra Marne</h3>
+                            <p>Designer</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="mission">
+                <h2>Our Mission</h2>
+                <p>The mission of TASKMINDER is to empower individuals to enhance their productivity and well-being
+                    through
+                    effective task management, reflective journaling, and goal setting. We aim to provide a
+                    user-friendly
+                    platform that supports users in organizing their tasks, capturing meaningful reflections through
+                    journaling, and setting and tracking achievable goals. Our mission is to help users prioritize their
+                    time, gain clarity, and achieve personal and professional success by fostering positive habits and
+                    promoting mindful productivity. TASKMINDER strives to be a valuable tool for individuals seeking to
+                    maximize their potential and lead fulfilling lives.</p>
+            </section>
+
+            <section id="contact">
+                <h2>Contact Us</h2>
+                <p>For inquiries, please email us at <a
+                        href="mailto:contactTASKMINDER@gmail.com">contactTASKMINDER@gmail.com</a>.</p>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 TASKMINDER</p>
+    </footer>
+</body>
+
+</html>

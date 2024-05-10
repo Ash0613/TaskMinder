@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - TASKMINDER</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-image: url('images/vecteezy_pink-pastel-color-abstract-background-design-and-soft-pastel_9279989.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .header h1 {
+            font-size: 30px;
+            font-weight: 800;
+            color: rgb(145, 92, 121);
+            margin: 0;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+        }
+
+        .header h1 i {
+            margin-right: 10px;
+            font-size: 30px;
+
+        }
+
+        .menu {
+            list-style-type: none;
+            padding: 20px;
+            margin: 0;
+            display: flex;
+        }
+
+        .menu li {
+            margin-left: 20px;
+        }
+
+        .menu li a {
+            text-decoration: none;
+            color: rgb(145, 92, 121);
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .menu li a:hover {
+            color: rgba(145, 92, 121, 0.8);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            width: calc(33.33% - 40px);
+            margin: 20px;
+            perspective: 1000px;
+            display: flex;
+        }
+
+        .feature-inner {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            border-radius: 10px;
+        }
+
+        .feature:hover .feature-inner {
+            transform: rotateY(180deg);
+        }
+
+        .feature-front,
+        .feature-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-front {
+            background-color: #fff;
+        }
+
+        .feature-back {
+            transform: rotateY(180deg);
+            background-color: #f9f9f9;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .feature-back p {
+            color: rgba(83, 43, 74, 0.86);
+            font-size: 16px;
+            margin-top: 0;
+        }
+
+        .feature-back h3 {
+            color: rgba(43, 24, 39, 0.581);
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+
+        .feature img {
+            max-width: 40%;
+            max-height: 40%;
+            border-radius: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #915c79;
+            color: #ffffff;
+        }
+
+        footer p {
+            margin-bottom: 0;
+            margin: 0;
+            font-size: 14px;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1><i class="fas fa-tasks"></i>TASKMINDER</h1>
+        <ul class="menu">
+            <li><a href="getstarted.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+
+
+        </ul>
+    </div>
+
+
+    <div class="container">
+        <div class="feature">
+            <div class="feature-inner">
+                <div class="feature-front">
+                    <img src="images/prioritize.png" alt="Feature 1">
+                </div>
+                <div class="feature-back">
+                    <h3>ADD TASKS</h3>
+                    <p>Seamlessly add, prioritize, and manage your tasks with our user-friendly interface, empowering
+                        you to stay focused and productive throughout your day, ensuring nothing falls through the
+                        cracks.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="feature">
+            <div class="feature-inner">
+                <div class="feature-front">
+                    <img src="images/diary.png" alt="Feature 2">
+                </div>
+                <div class="feature-back">
+                    <h3>JOURNAL</h3>
+                    <p> Reflect on your day, organize your thoughts, and track your progress with our intuitive
+                        journaling feature, designed to help you capture meaningful moments and insights effortlessly.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="feature">
+            <div class="feature-inner">
+                <div class="feature-front">
+                    <img src="images/timetable.png" alt="Feature 3">
+                </div>
+                <div class="feature-back">
+                    <h3>CALENDAR</h3>
+                    <p>Stay organized and never miss a deadline with our integrated calendar feature, offering a clear
+                        overview of your schedule, allowing you to plan and manage your time effectively while keeping
+                        track of important events and deadlines..</p>
+                </div>
+            </div>
+        </div>
+        <div class="feature">
+            <div class="feature-inner">
+                <div class="feature-front">
+                    <img src="images/reminder.png" alt="Feature 3">
+                </div>
+                <div class="feature-back">
+                    <h3>REMINDERS</h3>
+                    <p>Receive timely reminders straight to your inbox with our email notification feature. Stay on top
+                        of your tasks and deadlines effortlessly, ensuring you never miss an important appointment or
+                        task again. </p>
+                </div>
+            </div>
+        </div>
+        <div class="feature">
+            <div class="feature-inner">
+                <div class="feature-front">
+                    <img src="images/goal.png" alt="Feature 3">
+                </div>
+                <div class="feature-back">
+                    <h3>ADD GOALS</h3>
+                    <p>Set, track, and achieve your goals seamlessly with TASKMINDER's goal-setting feature. Whether
+                        you're aiming to boost productivity, improve time management, or accomplish personal milestones,
+                        our intuitive platform empowers you to define, monitor, and celebrate your progress. Stay
+                        motivated, stay focused, and turn your aspirations into accomplishments with TASKMINDER.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <footer>
+        <p>&copy; 2024 TASKMINDER</p>
+    </footer>
+
+</body>
+
+</html>

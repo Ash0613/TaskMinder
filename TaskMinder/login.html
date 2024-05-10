@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signin or Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0%;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+        }
+
+
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 0;
+            width: 100%;
+            height: 85vh;
+
+        }
+
+        h3 {
+            margin-left: 50px;
+            margin-bottom: 400px;
+            font-size: 75px;
+            font-family: 'Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif';
+
+        }
+
+        .grid-item1 {
+            display: grid;
+            width: 100%;
+            height: 85vh;
+            background-color: black;
+            background-image: url("https://static.vecteezy.com/system/resources/previews/007/158/466/non_2x/3d-white-clipboard-task-management-todo-check-list-with-notification-bell-icon-efficient-work-on-project-plan-alarm-concept-alert-for-todo-checklist-3d-clipboard-render-on-pink-background-vector.jpg");
+            background-size: cover;
+            color: rgb(254, 254, 254);
+            align-items: center;
+
+
+        }
+
+        .grid-item2 {
+            display: grid;
+            justify-content: flex-start;
+            height: 85vh;
+            background: url("https://cdn5.vectorstock.com/i/1000x1000/20/09/flat-outline-pink-cat-dog-steps-foot-print-vector-26382009.jpg");
+            background-size: 130% 140%;
+
+            margin-left: 50px;
+
+        }
+
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        .active {
+            text-decoration: none;
+            color: rgb(244, 234, 234);
+
+        }
+
+
+
+
+
+        button.signup[type="button"] {
+
+            background-color: rgb(188, 133, 163);
+            color: aliceblue;
+            padding: 5px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 12px;
+            border-color: rgb(188, 133, 163);
+
+
+        }
+
+        button.signup[type="button"]:hover {
+            background-color: rgb(170, 111, 115);
+            padding: 5px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 12px;
+            border-color: aliceblue;
+
+
+        }
+
+
+        .container {
+
+            width: 55vh;
+            height: 65vh;
+            justify-content: center;
+            margin-top: 35px;
+            margin-right: 10px;
+            background-color: rgb(254, 231, 241);
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            border: 2px solid rgb(236, 219, 220);
+            border-radius: 20px;
+            opacity: 0.9;
+            margin-left: 40px;
+
+        }
+
+
+
+
+
+        .form {
+            margin: 10px 0;
+            align-self: center;
+
+
+
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: small;
+        }
+
+
+        button.login[type="submit"] {
+            background-color: rgb(188, 133, 163);
+            color: white;
+            padding: 9px 18px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        button.login[type="submit"]:hover {
+            background-color: rgb(170, 111, 115);
+            padding: 9px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            color: white;
+
+        }
+
+
+
+
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgb(253, 234, 243);
+
+        }
+
+        .header h1 {
+            font-size: 30px;
+            font-weight: 800;
+            color: rgb(145, 92, 121);
+            margin: 0;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+        }
+
+        .header h1 i {
+            margin-right: 10px;
+            font-size: 30px;
+
+        }
+
+        .menu {
+            list-style-type: none;
+            padding: 20px;
+            margin: 0;
+            display: flex;
+        }
+
+        .menu li {
+            margin-left: 20px;
+        }
+
+        .menu li a {
+            text-decoration: none;
+            color: rgb(145, 92, 121);
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .menu li a:hover {
+            color: rgba(145, 92, 121, 0.8);
+        }
+
+        label {
+            font-size: 20px;
+            color: rgb(145, 92, 121);
+            opacity: 1;
+        }
+
+        input {
+            font-size: 17px;
+            color: rgb(145, 92, 121);
+            width: 200px;
+            border-radius: 20px;
+            border-color: rgb(254, 231, 241);
+            margin-left: 5px;
+        }
+
+
+        h2 {
+            font-size: 40px;
+            color: rgb(145, 92, 121);
+            opacity: 1;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        p {
+            margin-top: 30px;
+            color: rgb(145, 92, 121);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #915c79;
+            color: #ffffff;
+        }
+
+        footer p {
+            margin-bottom: 0;
+            margin: 0;
+            font-size: 14px;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="header">
+                <h1><i class="fas fa-tasks"></i>TASKMINDER</h1>
+                <ul class="menu">
+                    <li><a href="getstarted.html">Home</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="grid-container">
+        <div class="grid-item1">
+            <h3>Task<br>Minder</h3>
+        </div>
+        <div class="grid-item2">
+
+
+            <div class="container">
+                <form method="POST" action="login.php">
+                    <h2>Login</h2>
+                    <div class="form">
+                        <label for="username">Username:</label>
+                        <input class="box" type="text" id="userid" name="userid" required>
+                    </div>
+                    <div class="form">
+                        <label for="email">Email:</label>
+                        <input class="box" type="email" id="email" name="email">
+                    </div>
+                    <div class="form">
+                        <label for="phone">Phone Number:</label>
+                        <input class="box" type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form">
+                        <label for="pswd">Password:</label>
+                        <input class="box" type="password" id="pswd" name="pswd" required>
+                    </div>
+                    <button type="submit" name="login" class="login">Login</button>
+
+                    <p>Don't have an account?then...</p>
+                    <button type="button" class="signup">
+                        <a class="active" href="signuptask.html">Sign-up</a>
+                    </button>
+
+                </form>
+
+            </div>
+
+
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 TASKMINDER</p>
+    </footer>
+</body>
+
+</html>

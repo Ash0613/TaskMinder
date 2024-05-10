@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Material Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('images/vecteezy_pink-pastel-color-abstract-background-design-and-soft-pastel_9279989.jpg');
+            background-size: cover;
+            background-position: center;
+
+        }
+
+        /* Import Google font - Poppins */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        header {
+
+            color: #272121;
+            padding: 10px 0;
+            text-align: center;
+            margin-left: 260px;
+            font-size: 25px;
+        }
+
+        h3 {
+            font-family: 'Caveat', cursive;
+            font-weight: 2;
+
+
+        }
+
+        main {
+            padding: 5px;
+            margin-top: 5px;
+        }
+
+        .container {
+            padding: 20px;
+            margin-bottom: 20px;
+            margin-left: 300px;
+            font-size: 25px;
+        }
+
+        textarea {
+            margin-top: 40px;
+            height: 400px;
+            width: 85%;
+            border-radius: 20px;
+            font-size: 20px;
+            font-family: 'Caveat', cursive;
+            line-height: 1.5;
+            padding: 20px 10px;
+            border: none;
+            resize: none;
+            background-image: linear-gradient(to bottom, transparent 95%, #ccc 95%);
+            background-size: 100% 1.5em;
+        }
+
+        button {
+            background-color: rgb(188, 133, 163);
+            color: white;
+            padding: 9px 18px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 0;
+        }
+
+        .file-input {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .file-label {
+            display: inline-block;
+            background-color: rgb(227, 193, 213);
+            color: #fff;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .file-label:hover {
+            background-color: rgba(188, 133, 163, 0.8);
+        }
+
+        footer {
+            background-color: #915c79;
+            color: #ffffff;
+            opacity: 0.9;
+
+            text-align: center;
+            padding: 14px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            margin-left: 260px;
+
+        }
+
+        footer p {
+
+            text-align: center;
+            margin-right: 200px;
+        }
+
+
+
+
+        .sidenav {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            height: 100%;
+            width: 260px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: rgba(188, 133, 163, 0.8);
+            border-right: 2px solid rgb(236, 219, 220);
+            border-color: rgba(188, 133, 163, 0.8);
+            padding-top: 0px;
+            opacity: 0.9;
+
+        }
+
+        .sidenav .horizontal {
+            display: flex;
+            align-items: center;
+            margin-top: 0;
+
+            height: 50px;
+            width: 100%;
+            margin-left: 0px;
+            background-color: rgb(145, 92, 121);
+
+        }
+
+        .sidenav a {
+
+            text-decoration: none;
+            font-size: 18px;
+            color: #ffffff;
+            display: block;
+            transition: 0.3s;
+            margin-left: 20px;
+        }
+
+        .sidenav .atask {
+            margin-left: 10px;
+            margin-right: 60px;
+        }
+
+        .sidenav .a2 {
+            padding: 10px 10px 10px 14px;
+            margin: 10px 0;
+            text-decoration: none;
+            font-size: 22px;
+            color: #ffffff;
+            display: block;
+            transition: 0.3s;
+            margin-top: 35px;
+            margin-left: 19px;
+
+        }
+
+
+        .sidenav a:hover {
+            color: #131111;
+
+        }
+
+
+        .userprof {
+            margin-left: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidenav">
+        <div class="horizontal">
+            <a class="atask" href="getstarted.html">
+                <i class="fas fa-tasks"></i>
+                TaskMinder
+            </a>
+            <a class="userprof" href="userprof.php">
+                <i class="fas fa-user profile-icon"></i> <!-- Profile Icon -->
+
+            </a>
+        </div>
+        <a class="a2" href="home.php">
+            <i class="fas fa-home"></i> <!-- Tasks Icon -->
+            Home
+        </a>
+        <a class="a2" href="add_task.php">
+            <i class="fas fa-tasks profile-icon"></i> <!-- Tasks Icon -->
+            Add Task
+        </a>
+        <a class="a2" href="notes.html">
+            <i class="fas fa-sticky-note profile-icon"></i> <!-- Goals Icon -->
+            Notes
+        </a>
+
+        <a class="a2" href="journal.html">
+            <i class="fas fa-book profile-icon"></i> <!-- Journal Icon -->
+            Journal
+        </a>
+        <a class="a2" href="prevJournals.php">
+            <i class="fas fa-history profile-icon"></i> <!-- History Icon -->
+            Previous Journal's
+        </a>
+        <a class="a2" href="goal.php">
+            <i class="fas fa-bullseye profile-icon"></i> <!-- Goals Icon -->
+            Add Goals
+        </a>
+        <a class="a2" href="aboutus1.html" class="upcoming-tasks-icon">
+            <i class="fas fa-users profile-icon"></i> <!-- Calendar Icon -->
+            About Us
+        </a>
+    </div>
+    <header>
+        <h1>Journal</h1>
+    </header>
+    <main>
+        <div class="container">
+            <h3 id="todaysDate"></h3>
+            <form id="journalForm" action="save_entry.php" method="POST">
+                <textarea id="journalEntry" name="journalEntry" rows="10"
+                    placeholder="Write your journal entry here..."></textarea>
+                <br><br>
+                <button type="submit">Save Entry</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        const currentDate = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('todaysDate').textContent = "Today's Date: " + currentDate.toLocaleDateString('en-US', options);
+    </script>
+</body>
+
+</html>

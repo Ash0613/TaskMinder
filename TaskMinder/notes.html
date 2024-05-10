@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes Application</title>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Material Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            padding: 20px;
+            background-image: url('images/vecteezy_pink-pastel-color-abstract-background-design-and-soft-pastel_9279989.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .sidenav {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            height: 100%;
+            width: 260px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: rgba(188, 133, 163, 0.8);
+            border-right: 2px solid rgb(236, 219, 220);
+            border-color: rgb(236, 219, 220);
+            padding-top: 0px;
+            opacity: 0.9;
+
+        }
+
+        .sidenav .horizontal {
+            display: flex;
+            align-items: center;
+            margin-top: 0;
+
+            height: 50px;
+            width: 100%;
+            margin-left: 0px;
+            background-color: rgb(145, 92, 121);
+
+        }
+
+        .sidenav a {
+
+            text-decoration: none;
+            font-size: 18px;
+            color: #ffffff;
+            display: block;
+            transition: 0.3s;
+            margin-left: 20px;
+        }
+
+        .sidenav .atask {
+            margin-left: 10px;
+            margin-right: 60px;
+        }
+
+        .sidenav .a2 {
+            padding: 10px 10px 10px 14px;
+            margin: 10px 0;
+            text-decoration: none;
+            font-size: 22px;
+            color: #ffffff;
+            display: block;
+            transition: 0.3s;
+            margin-top: 35px;
+            margin-left: 19px;
+
+        }
+
+
+        .sidenav a:hover {
+            color: #131111;
+
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+            margin-left: 500px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: rgb(188, 133, 163);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: rgb(188, 133, 163);
+        }
+
+        .note-container {
+            position: relative;
+            width: 750px;
+            padding: 15px;
+            margin-bottom: 10px;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fce4ec;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .note-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .note-content {
+            font-size: 16px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .note-actions {
+            margin-top: 10px;
+        }
+
+        .note-actions button {
+            padding: 5px 10px;
+            background-color: rgb(188, 133, 163);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .note-actions button:hover {
+            background-color: #4a044b;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            max-width: 80%;
+            overflow-y: auto;
+        }
+
+        .modal-content input[type="text"],
+        .modal-content textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .modal-content button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal-content button:hover {
+            background-color: #0056b3;
+        }
+
+        .ql-container.ql-snow {
+            font-size: 20px;
+        }
+
+        h2 {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: center;
+            color: black;
+            font-size: 40px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidenav">
+        <div class="horizontal">
+            <a class="atask" href="getstarted.html">
+                <i class="fas fa-tasks"></i>
+                TaskMinder
+            </a>
+            <a href="userprof.php">
+                <i class="fas fa-user profile-icon"></i> <!-- Profile Icon -->
+
+            </a>
+        </div>
+        <a class="a2" href="home.php">
+            <i class="fas fa-home"></i> <!-- Tasks Icon -->
+            Home
+        </a>
+        <a class="a2" href="add_task.php">
+            <i class="fas fa-tasks profile-icon"></i> <!-- Tasks Icon -->
+            Add Task
+        </a>
+        <a class="a2" href="notes.html">
+            <i class="fas fa-sticky-note profile-icon"></i> <!-- Goals Icon -->
+            Notes
+        </a>
+
+        <a class="a2" href="journal.html">
+            <i class="fas fa-book profile-icon"></i> <!-- Journal Icon -->
+            Journal
+        </a>
+        <a class="a2" href="prevJournals.php">
+            <i class="fas fa-history profile-icon"></i> <!-- History Icon -->
+            Previous Journal's
+        </a>
+        <a class="a2" href="goal.php">
+            <i class="fas fa-bullseye profile-icon"></i> <!-- Goals Icon -->
+            Add Goals
+        </a>
+        <a class="a2" href="aboutus1.html" class="upcoming-tasks-icon">
+            <i class="fas fa-users profile-icon"></i> <!-- Calendar Icon -->
+            About Us
+        </a>
+    </div>
+    <div class="container">
+        <h2>Notes</h2>
+
+        <input type="text" id="noteTitle" placeholder="Enter note title...">
+        <div id="noteEditor" style="height: 200px;"></div>
+        <button onclick="addNote()">Add Note</button>
+
+        <div id="notesList"></div>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content" id="modalContent">
+            <input type="text" id="editTitle" placeholder="Enter note title...">
+            <div id="editNoteEditor" style="height: 200px;"></div>
+            <button onclick="saveChanges()">Save Changes</button>
+            <button onclick="cancelEdit()">Cancel</button>
+        </div>
+
+        <div class="modal-overlay" id="modalOverlay">
+            <div class="modal-content" id="modalContent">
+                <h3 id="viewNoteTitle"></h3>
+                <div id="viewNoteContent" class="note-content"></div>
+                <div class="note-actions">
+                    <button id="saveChangesBtn" style="display: none;" onclick="saveChanges()">Save Changes</button>
+                    <button id="editNoteBtn" onclick="editNote()">Edit</button>
+                    <button onclick="deleteNote()">Delete</button>
+                    <button onclick="closeModal()">Close</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script>
+        const noteEditor = new Quill('#noteEditor', {
+            theme: 'snow',
+            placeholder: 'Write your note here...'
+        });
+
+        const editNoteEditor = new Quill('#editNoteEditor', {
+            theme: 'snow',
+            placeholder: 'Write your note here...'
+        });
+
+        let editingNote = null;
+
+        function addNote() {
+            const noteTitle = document.getElementById('noteTitle').value.trim();
+            const noteContent = noteEditor.root.innerHTML.trim();
+
+            if (noteTitle === '' || noteContent === '') {
+                alert('Please enter a note title and content.');
+                return;
+            }
+
+            const note = {
+                id: new Date().getTime(),
+                title: noteTitle,
+                content: noteContent,
+                createdAt: new Date().toLocaleString()
+            };
+
+            let notes = JSON.parse(localStorage.getItem('notes')) || [];
+            notes.push(note);
+            localStorage.setItem('notes', JSON.stringify(notes));
+
+            displayNotes();
+            noteEditor.root.innerHTML = '';
+            document.getElementById('noteTitle').value = '';
+        }
+
+        function displayNotes() {
+            const notesList = document.getElementById('notesList');
+            notesList.innerHTML = '';
+
+            let notes = JSON.parse(localStorage.getItem('notes')) || [];
+
+            notes.forEach((note, index) => {
+                const noteContainer = document.createElement('div');
+                noteContainer.classList.add('note-container');
+
+                const noteTitle = document.createElement('div');
+                noteTitle.classList.add('note-content');
+                noteTitle.textContent = note.title;
+                noteTitle.style.fontWeight = 'bold';
+
+                const noteContent = document.createElement('div');
+                noteContent.classList.add('note-content');
+                noteContent.innerHTML = note.content;
+
+                const noteActions = document.createElement('div');
+                noteActions.classList.add('note-actions');
+
+                const viewButton = document.createElement('button');
+                viewButton.textContent = 'View';
+                viewButton.onclick = () => openNoteInModal(note);
+
+                const editButton = document.createElement('button');
+                editButton.textContent = 'Edit';
+                editButton.onclick = () => openEditModal(note);
+
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.onclick = () => deleteNoteById(note.id);
+
+                noteActions.appendChild(viewButton);
+                noteActions.appendChild(editButton);
+                noteActions.appendChild(deleteButton);
+
+                noteContainer.appendChild(noteTitle);
+                noteContainer.appendChild(noteContent);
+                noteContainer.appendChild(noteActions);
+                notesList.appendChild(noteContainer);
+
+                noteContainer.addEventListener('click', () => openNoteInModal(note));
+            });
+        }
+
+        function openEditModal(note) {
+            editingNote = note;
+            const editTitleInput = document.getElementById('editTitle');
+            editTitleInput.value = note.title;
+            editNoteEditor.root.innerHTML = note.content;
+
+            const modalOverlay = document.getElementById('modalOverlay');
+            modalOverlay.style.display = 'flex';
+
+            document.getElementById('viewNoteTitle').textContent = '';
+            document.getElementById('viewNoteContent').textContent = '';
+            document.getElementById('saveChangesBtn').style.display = 'none';
+            document.getElementById('editNoteBtn').style.display = 'none';
+        }
+
+        function saveChanges() {
+            if (!editingNote) return;
+
+            const editTitle = document.getElementById('editTitle').value.trim();
+            const editContent = editNoteEditor.root.innerHTML.trim();
+
+            if (editTitle === '' || editContent === '') {
+                alert('Please enter a note title and content.');
+                return;
+            }
+
+            editingNote.title = editTitle;
+            editingNote.content = editContent;
+            updateNoteInStorage(editingNote);
+            displayNotes();
+            closeModal();
+        }
+
+        function cancelEdit() {
+            closeModal();
+        }
+
+        function deleteNoteById(noteId) {
+            let notes = JSON.parse(localStorage.getItem('notes')) || [];
+            notes = notes.filter(note => note.id !== noteId);
+            localStorage.setItem('notes', JSON.stringify(notes));
+            displayNotes();
+        }
+
+        function updateNoteInStorage(updatedNote) {
+            let notes = JSON.parse(localStorage.getItem('notes')) || [];
+            const index = notes.findIndex(note => note.id === updatedNote.id);
+            if (index !== -1) {
+                notes[index] = updatedNote;
+                localStorage.setItem('notes', JSON.stringify(notes));
+            }
+        }
+
+        function openNoteInModal(note) {
+            const viewNoteTitle = document.getElementById('viewNoteTitle');
+            const viewNoteContent = document.getElementById('viewNoteContent');
+
+            viewNoteTitle.textContent = note.title;
+            viewNoteContent.innerHTML = note.content;
+
+            document.getElementById('saveChangesBtn').style.display = 'none';
+            document.getElementById('editNoteBtn').style.display = 'inline-block'; // Show Edit button
+            const modalOverlay = document.getElementById('modalOverlay');
+            modalOverlay.style.display = 'flex';
+        }
+
+        function closeModal() {
+            const modalOverlay = document.getElementById('modalOverlay');
+            modalOverlay.style.display = 'none';
+        }
+
+        displayNotes();
+    </script>
+</body>
+
+</html>
