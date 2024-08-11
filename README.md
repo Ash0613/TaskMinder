@@ -45,9 +45,9 @@ Once you have the TaskMinder installed and the database set up, you can start us
     - **Take notes**: Click on the 'Notes' to take notes, where you can edit or delete.
       
 ## Some Images
-![Screenshot (210)](https://github.com/Ash0613/TaskMinder/assets/159044952/1abc5f69-2a62-4ea4-8802-2c02d7be1d14)
-![Screenshot (212)](https://github.com/Ash0613/TaskMinder/assets/159044952/0d932ddf-4df5-4228-b505-7ed69cae14de)
-![Screenshot (218)](https://github.com/Ash0613/TaskMinder/assets/159044952/f9c5adb7-ae76-407c-a3a8-97040d35030e)
+![Screenshot (210)](https://github.com/user-attachments/assets/51d0d44c-2e94-41ee-8655-cd80bdec856a)
+![Screenshot (212)](https://github.com/user-attachments/assets/6ea9ba97-8a31-44ee-9040-af1672c37e11)
+![Screenshot (218)](https://github.com/user-attachments/assets/d13d639b-addb-49de-9702-dce496f81662)
 
 
 ## Contact
